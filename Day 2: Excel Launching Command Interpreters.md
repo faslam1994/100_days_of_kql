@@ -20,10 +20,10 @@ Immediate application of Microsoft’s security update is strongly recommended, 
 ## **MITRE ATT&CK Techniques**
 
 ### **Tactics**
-■ Initial Access  
-■ Defense Evasion
-■ Command and Control
-■ Exfiltration  
+■ Initial Access <br>
+■ Defense Evasion <br>
+■ Command and Control <br>
+■ Exfiltration  <br>
 
 <br>
 
