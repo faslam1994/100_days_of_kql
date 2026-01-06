@@ -32,9 +32,9 @@ This makes it especially effective for detecting **TTP‑based intrusions** that
 ■ Exfiltration  
 
 ### **Techniques**
-■ **T1078 – Valid Accounts**: https://attack.mitre.org/techniques/T1078/  
-■ **T1567.002 – Exfiltration to Cloud Storage**: https://attack.mitre.org/techniques/T1567/002/
-■ **T1041 – Exfiltration Over C2 Channel**: https://attack.mitre.org/techniques/T1041/
+■ **T1078 – Valid Accounts**: https://attack.mitre.org/techniques/T1078/  <br>
+■ **T1567.002 – Exfiltration to Cloud Storage**: https://attack.mitre.org/techniques/T1567/002/ <br>
+■ **T1041 – Exfiltration Over C2 Channel**: https://attack.mitre.org/techniques/T1041/ <br>
 
 <br>
 
