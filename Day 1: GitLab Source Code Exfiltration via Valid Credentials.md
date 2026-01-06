@@ -31,6 +31,8 @@ This makes it especially effective for detecting **TTP‑based intrusions** that
 ■ Persistence  
 ■ Exfiltration  
 
+<br>
+
 ### **Techniques**
 ■ **T1078 – Valid Accounts**: https://attack.mitre.org/techniques/T1078/  <br>
 ■ **T1567.002 – Exfiltration to Cloud Storage**: https://attack.mitre.org/techniques/T1567/002/ <br>
