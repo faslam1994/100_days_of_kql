@@ -1,6 +1,5 @@
 
-# Alert Title
-GitLab Source Code Exfiltration via Valid Credentials
+# Alert Title: GitLab Source Code Exfiltration via Valid Credentials
 
 <br>
 
