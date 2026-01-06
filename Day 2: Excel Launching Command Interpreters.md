@@ -57,8 +57,8 @@ Immediate application of Microsoft’s security update is strongly recommended, 
 <br>
 
 ## **False Positives**
-■ Legitimate automation: Internal Excel add-ins or admin scripts that invoke PowerShell/CMD to perform maintenance tasks. 
-■ Business workflows: Some Business Intelligence scenarios such as Power Query or Office add-ins may fetch web content. 
+■ Legitimate automation: Internal Excel add-ins or admin scripts that invoke PowerShell/CMD to perform maintenance tasks. <br>
+■ Business workflows: Some Business Intelligence scenarios such as Power Query or Office add-ins may fetch web content. <br>
 
 <br>
 
@@ -93,9 +93,9 @@ DeviceProcessEvents
 <br>
 
 ## **References**
-■  WindowsForum (2025) Microsoft Excel CVE‑2025‑47174: Critical Remote Code Execution Vulnerability, WindowsForum, 10th June. Available at: https://windowsforum.com/threads/microsoft-excel-cve-2025-47174-critical-remote-code-execution-vulnerability.369800/
-■  CounterCraft (n.d.) Analysis of an Emotet Infection via a Malicious Excel Macro, CounterCraft [Blog]. Available at: https://www.countercraftsec.com/blog/analysis-of-an-emotet-infection-via-a-malicious-excel-macro/
-■ Keepnet Labs (2024) Excel XLL Add‑Ins Cause 600% Rise in Phishing Attacks: Stay Safe, Keepnet Labs, 25th November [Blog]. Available at: https://keepnetlabs.com/blog/excel-xll-add-ins-cause-600-rise-in-phishing-attacks-stay-safe"
+■  WindowsForum (2025) Microsoft Excel CVE‑2025‑47174: Critical Remote Code Execution Vulnerability, WindowsForum, 10th June. Available at: https://windowsforum.com/threads/microsoft-excel-cve-2025-47174-critical-remote-code-execution-vulnerability.369800/ <br>
+■  CounterCraft (n.d.) Analysis of an Emotet Infection via a Malicious Excel Macro, CounterCraft [Blog]. Available at: https://www.countercraftsec.com/blog/analysis-of-an-emotet-infection-via-a-malicious-excel-macro/ <br>
+■ Keepnet Labs (2024) Excel XLL Add‑Ins Cause 600% Rise in Phishing Attacks: Stay Safe, Keepnet Labs, 25th November [Blog]. Available at: https://keepnetlabs.com/blog/excel-xll-add-ins-cause-600-rise-in-phishing-attacks-stay-safe" <br>
 
 <br>
 
