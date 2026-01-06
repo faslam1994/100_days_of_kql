@@ -39,7 +39,7 @@ By combining content‑based indicators with behavioral anomalies, the query ide
 <br>
 
 ## **Detection Type** 
-■ Behavioural Detection  
+■ Behavioural Detection  <br>
 ■ TTP‑based  
 
 <br>
@@ -51,10 +51,10 @@ By combining content‑based indicators with behavioral anomalies, the query ide
 <br>
 
 ## **False Positives**
-■ Sanctioned MCP servers or AI tools may naturally generate higher token usage or large responses. 
-■ Advanced prompt engineering can resemble injection patterns without malicious intent. 
-■ Automated AI workflows may produce large response payloads or frequent requests in short time windows. 
-■ Developers or data scientists may legitimately use long prompts, Base64 encoding, or repeated sampling during model testing.
+■ Sanctioned MCP servers or AI tools may naturally generate higher token usage or large responses. <br>
+■ Advanced prompt engineering can resemble injection patterns without malicious intent. <br>
+■ Automated AI workflows may produce large response payloads or frequent requests in short time windows. <br>
+■ Developers or data scientists may legitimately use long prompts, Base64 encoding, or repeated sampling during model testing. <br>
 
 <br>
 
@@ -107,7 +107,7 @@ SuspiciousRequests
 <br>
 
 ## **References**
-■ Hu, W., Huang, Y., Ji, Y., Li, C., & Rao, A. (2025) New Prompt Injection Attack Vectors Through MCP Sampling, Palo Alto Networks Unit 42, 6 December [Blog]. Available at: https://unit42.paloaltonetworks.com/model-context-protocol-attack-vectors/
+■ Hu, W., Huang, Y., Ji, Y., Li, C., & Rao, A. (2025) New Prompt Injection Attack Vectors Through MCP Sampling, Palo Alto Networks Unit 42, 6 December [Blog]. Available at: https://unit42.paloaltonetworks.com/model-context-protocol-attack-vectors/ <br>
 ■ Raina, A. S. (2025) MCP Horror Stories: The WhatsApp Data Exfiltration Attack, Docker Blog, 13 November [Blog]. Available at: https://www.docker.com/blog/mcp-horror-stories-whatsapp-data-exfiltration-issue/
 
 <br>
