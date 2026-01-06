@@ -1,7 +1,8 @@
-# Alert Title
+
+# *Alert Title*
 GitLab Source Code Exfiltration via Valid Credentials
 
-## Description
+## **Description**
 This query detects potential source‑code exfiltration following a successful GitLab authentication, a technique commonly seen in supply‑chain and third‑party vendor breaches. It correlates successful GitLab sign‑ins—including vendor, contractor, or third‑party accounts—with large outbound data transfers exceeding **1 GB** from the same IP address within a one‑hour window.
 
 This behaviour mirrors the December 2025 Nissan vendor GitLab breach, where attackers used valid vendor credentials to authenticate and exfiltrate source code without deploying malware.
@@ -13,43 +14,43 @@ By focusing on **behavioural sequencing** instead of IOCs, this analytic helps i
 
 This makes it especially effective for detecting **TTP‑based intrusions** that bypass traditional signature‑based defences.
 
-## Threats
-- **Crimson Collective**  
-- **ShinyHunters**
+## **Threats**
+■ **Crimson Collective**  
+■ **ShinyHunters**
 
-## MITRE ATT&CK Techniques
+## **MITRE ATT&CK Techniques**
 
-### Tactics
-- Initial Access  
-- Persistence  
-- Exfiltration  
+### **Tactics**
+■ Initial Access  
+■ Persistence  
+■ Exfiltration  
 
-### Techniques
-- **T1078 – Valid Accounts**  
-- **T1567.002 – Exfiltration to Cloud Storage**  
-- **T1041 – Exfiltration Over C2 Channel**
+### **Techniques**
+■ **T1078 – Valid Accounts**  
+■ **T1567.002 – Exfiltration to Cloud Storage**  
+■ **T1041 – Exfiltration Over C2 Channel**
 
-## Severity
+## **Severity**
 **High**
 
-## Detection Type
-- Threat Hunting  
-- Behavioural Detection  
-- TTP‑based  
+## **Detection Type**
+■ Threat Hunting  
+■ Behavioural Detection  
+■ TTP‑based  
 
-## Data Sources
-### Microsoft Sentinel
-- **Microsoft Entra ID**: `SigninLogs`  
-- **CommonSecurityLog** (Firewall / Proxy logs)
+## **Data Sources**
+### **Microsoft Sentinel**
+■ **Microsoft Entra ID**: `SigninLogs`  
+■ **CommonSecurityLog** (Firewall / Proxy logs)
 
-## False Positives
-- Legitimate developers performing authorised large repository clones  
-- Automated CI/CD pipelines or build agents  
-- Scheduled backups or artifact distribution tasks  
+## **False Positives**
+■ Legitimate developers performing authorised large repository clones  
+■ Automated CI/CD pipelines or build agents  
+■ Scheduled backups or artifact distribution tasks  
 
 ---
 
-# KQL Query
+# **KQL Query**
 
 ```kusto
 // GitLab login + large outbound transfer correlation
@@ -95,9 +96,9 @@ GitLabLogins
 
 ---
 
-## References
-- Santhanam, A. (2025). *Red Hat Data Breach Exposes 21,000+ Nissan Customer Records.*  
-- SOCRadar (2025). *Dark Web Profile: ShinyHunters.*
+## **References**
+■ Santhanam, A. (2025). *Red Hat Data Breach Exposes 21,000+ Nissan Customer Records.*  
+■ SOCRadar (2025). *Dark Web Profile: ShinyHunters.*
 
 ## **Author**
 **Faiza Aslam**
