@@ -18,23 +18,21 @@ During this period, anomalous sign-ins from multiple IP addresses, devices, oper
 ## **MITRE ATT&CK Techniques**
 
 ### **Tactics**
+■ Credential Access <br>
+■ Persistence <br>
 ■ Initial Access <br>
 ■ Defense Evasion <br>
-■ Command and Control <br>
-■ Exfiltration  <br>
+■ Privilege Escalation <br>
 
 <br>
 
 ### **Techniques**
-■ **T1059.001 – Command and Scripting Interpreter: PowerShell**: https://attack.mitre.org/techniques/T1059/001/ <br>
-■ **T1059.003 – Command and Scripting Interpreter: Windows Command Shell**: https://attack.mitre.org/techniques/T1059/003/ <br>
-■ **T1059.005 – Command and Scripting Interpreter: Visual Basic**: https://attack.mitre.org/techniques/T1059/005/ <br>
-■ **T1218.005 – Signed Binary Proxy Execution: MSHTA**: https://attack.mitre.org/techniques/T1218/005/ <br>
-■ **T1105 – Ingress Tool Transfer**: https://attack.mitre.org/techniques/T1105/ <br>
-■ **T1027 – Obfuscated/Compressed Files and Information**: https://attack.mitre.org/techniques/T1027/ <br>
-■ **T1204 – User Execution**: https://attack.mitre.org/techniques/T1204/ <br>
+■ **T1556 – Modify Authentication Process**: https://attack.mitre.org/techniques/T1556/ <br>
+■ **T1098 – Account Manipulation**: https://attack.mitre.org/techniques/T1098/ <br>
+■ **T1078 – Valid Accounts**: https://attack.mitre.org/techniques/T1078/ <br>
 
 <br>
+
 
 ## **Severity**
 **High**: Administrative tampering with MFA security information leading to potential account takeover and lateral movement.
