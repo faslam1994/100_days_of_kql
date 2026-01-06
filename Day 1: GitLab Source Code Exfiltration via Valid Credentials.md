@@ -71,29 +71,30 @@ This makes it especially effective for detecting **TTP‑based intrusions** that
 
 ```kusto
 
+// Subquery: successful GitLab sign-ins from Entra ID (limit to successes and essential fields)
 let GitLabLogins =
     SigninLogs
-    | where AppDisplayName has "GitLab"
-    | where ResultType == 0               // success
+    | where AppDisplayName has "GitLab"                    // filter to GitLab app sign-ins (adjust name if self-hosted)
+    | where ResultType == 0                                // success only
     | project UserPrincipalName, IPAddress, TimeGenerated, AppDisplayName;
 
+// Subquery: large outbound transfers from firewall/proxy telemetry (CommonSecurityLog)
 let NetworkExfil =
     CommonSecurityLog
-    | extend SentGB = round(SentBytes / 1024.0 / 1024.0 / 1024.0, 2)     // adjust: many vendors use bytes_out / outBytes
-    | where SentGB > 1 
-    | where DeviceAction !in~ ("deny", "blocked")
+    | extend SentGB = round(SentBytes / 1024.0 / 1024.0 / 1024.0, 2)   // human-readable GB for triage
+    | where SentGB > 1                                                 // threshold: > 1 GB (tune per environment)
+    | where DeviceAction !in~ ("deny", "blocked")                      // exclude unsuccessful egress
     | project SourceIP, DestinationIP, DestinationPort, TimeGenerated, SentBytes, SentGB, RequestURL;
 
+// Correlate successful GitLab logins with large outbound transfers from the same IP within 1 hour
 GitLabLogins
 | join kind=inner (
     NetworkExfil
-    // Map IP fields to align for join. If your proxy logs show client IP as SrcIP (public),
-    // this direct mapping may work; otherwise use NAT mapping from your egress firewall.
     | project IPAddress = tostring(SourceIP), TimeGenerated, SentBytes, SentGB, RequestURL, DestinationIP, DestinationPort
 ) on IPAddress
-| where TimeGenerated1 between (TimeGenerated .. TimeGenerated + 1h)
-| project UserPrincipalName, IPAddress, LoginTime=TimeGenerated, ExfilTime=TimeGenerated1,
-          SentGB, RequestURL, DestinationIP, DestinationPort, AppDisplayName
+| where TimeGenerated1 between (TimeGenerated .. TimeGenerated + 1h)   // sequence window: network event within 1h of login
+| project UserPrincipalName, IPAddress, LoginTime = TimeGenerated, ExfilTime = TimeGenerated1, SentGB, RequestURL, DestinationIP, DestinationPort, AppDisplayName
+
 ```
 
 --- 
