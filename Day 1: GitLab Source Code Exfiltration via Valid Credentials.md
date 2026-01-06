@@ -67,7 +67,7 @@ This makes it especially effective for detecting **TTP‑based intrusions** that
 --- 
 
 
-# **KQL Query**
+## **KQL Query**
 
 ```kusto
 
