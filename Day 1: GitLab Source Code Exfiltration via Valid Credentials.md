@@ -2,6 +2,7 @@
 # Alert Title
 GitLab Source Code Exfiltration via Valid Credentials
 
+
 ## **Description**
 This query detects potential source‑code exfiltration following a successful GitLab authentication, a technique commonly seen in supply‑chain and third‑party vendor breaches. It correlates successful GitLab sign‑ins—including vendor, contractor, or third‑party accounts—with large outbound data transfers exceeding **1 GB** from the same IP address within a one‑hour window.
 
@@ -14,9 +15,11 @@ By focusing on **behavioural sequencing** instead of IOCs, this analytic helps i
 
 This makes it especially effective for detecting **TTP‑based intrusions** that bypass traditional signature‑based defences.
 
+
 ## **Threats**
 ■ **Crimson Collective**  
 ■ **ShinyHunters**
+
 
 ## **MITRE ATT&CK Techniques**
 
@@ -30,18 +33,22 @@ This makes it especially effective for detecting **TTP‑based intrusions** that
 ■ **T1567.002 – Exfiltration to Cloud Storage**  
 ■ **T1041 – Exfiltration Over C2 Channel**
 
+
 ## **Severity**
 **High**
+
 
 ## **Detection Type**
 ■ Threat Hunting  
 ■ Behavioural Detection  
 ■ TTP‑based  
 
+
 ## **Data Sources**
 ### **Microsoft Sentinel**
 ■ **Microsoft Entra ID**: `SigninLogs`  
 ■ **CommonSecurityLog** (Firewall / Proxy logs)
+
 
 ## **False Positives**
 ■ Legitimate developers performing authorised large repository clones  
@@ -96,9 +103,11 @@ GitLabLogins
 
 ---
 
+
 ## **References**
 ■ Santhanam, A. (2025). *Red Hat Data Breach Exposes 21,000+ Nissan Customer Records.*  
 ■ SOCRadar (2025). *Dark Web Profile: ShinyHunters.*
+
 
 ## **Author**
 **Faiza Aslam**
