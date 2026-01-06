@@ -3,7 +3,7 @@
 <br>
 
 ## **Description**
-This alert is designed to detect scenarios where EXCEL.EXE launches Windows script or command interpreters—such as PowerShell, CMD, WScript, CScript, or MSHTA—together with suspicious arguments commonly linked to fileless execution or remote payload retrieval, including indicators like IEX, -EncodedCommand, DownloadString, and http/https paths. 
+This alert is designed to detect scenarios where EXCEL.EXE launches Windows script or command interpreters such as PowerShell, CMD, WScript, CScript, or MSHTA—together with suspicious arguments commonly linked to fileless execution or remote payload retrieval, including indicators like IEX, -EncodedCommand, DownloadString, and http/https paths. 
 Attackers frequently exploit Excel VBA, Excel 4.0 (XL4) macros, and OLE/HTA‑based execution chains to run code directly in memory and pull additional malicious components from the internet. 
 The recently disclosed CVE‑2025‑47174, a heap‑based buffer overflow vulnerability in Microsoft Excel, allows arbitrary code execution when a user opens a specially crafted Excel file. 
 After initial compromise, adversaries often escalate their activity by leveraging script interpreters spawned from Excel to stage and execute secondary payloads. 
