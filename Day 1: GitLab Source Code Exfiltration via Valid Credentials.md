@@ -63,7 +63,9 @@ This makes it especially effective for detecting **TTP‑based intrusions** that
 ■ Scheduled backups or artifact distribution tasks  
 
 <br>
----
+
+--- 
+
 
 # **KQL Query**
 
