@@ -60,45 +60,30 @@ This makes it especially effective for detecting **TTP‑based intrusions** that
 # **KQL Query**
 
 ```kusto
-// GitLab login + large outbound transfer correlation
 
-// Subquery: Successful GitLab sign-ins from Entra ID SigninLogs
 let GitLabLogins =
     SigninLogs
     | where AppDisplayName has "GitLab"
-    | where ResultType == 0
+    | where ResultType == 0               // success
     | project UserPrincipalName, IPAddress, TimeGenerated, AppDisplayName;
 
-// Subquery: Large outbound transfers from firewall/proxy telemetry
 let NetworkExfil =
     CommonSecurityLog
-    | extend SentGB = round(SentBytes / 1024.0 / 1024.0 / 1024.0, 2)
-    | where SentGB > 1
+    | extend SentGB = round(SentBytes / 1024.0 / 1024.0 / 1024.0, 2)     // adjust: many vendors use bytes_out / outBytes
+    | where SentGB > 1 
     | where DeviceAction !in~ ("deny", "blocked")
     | project SourceIP, DestinationIP, DestinationPort, TimeGenerated, SentBytes, SentGB, RequestURL;
 
-// Correlation
 GitLabLogins
 | join kind=inner (
     NetworkExfil
-    | project IPAddress = tostring(SourceIP),
-              TimeGenerated,
-              SentBytes,
-              SentGB,
-              RequestURL,
-              DestinationIP,
-              DestinationPort
+    // Map IP fields to align for join. If your proxy logs show client IP as SrcIP (public),
+    // this direct mapping may work; otherwise use NAT mapping from your egress firewall.
+    | project IPAddress = tostring(SourceIP), TimeGenerated, SentBytes, SentGB, RequestURL, DestinationIP, DestinationPort
 ) on IPAddress
 | where TimeGenerated1 between (TimeGenerated .. TimeGenerated + 1h)
-| project UserPrincipalName,
-          IPAddress,
-          LoginTime = TimeGenerated,
-          ExfilTime = TimeGenerated1,
-          SentGB,
-          RequestURL,
-          DestinationIP,
-          DestinationPort,
-          AppDisplayName
+| project UserPrincipalName, IPAddress, LoginTime=TimeGenerated, ExfilTime=TimeGenerated1,
+          SentGB, RequestURL, DestinationIP, DestinationPort, AppDisplayName
 ```
 
 ---
