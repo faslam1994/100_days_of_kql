@@ -2,6 +2,7 @@
 # Alert Title
 GitLab Source Code Exfiltration via Valid Credentials
 
+<br>
 
 ## **Description**
 This query detects potential source‑code exfiltration following a successful GitLab authentication, a technique commonly seen in supply‑chain and third‑party vendor breaches. It correlates successful GitLab sign‑ins—including vendor, contractor, or third‑party accounts—with large outbound data transfers exceeding **1 GB** from the same IP address within a one‑hour window.
@@ -15,11 +16,13 @@ By focusing on **behavioural sequencing** instead of IOCs, this analytic helps i
 
 This makes it especially effective for detecting **TTP‑based intrusions** that bypass traditional signature‑based defences.
 
+<br>
 
 ## **Threats**
 ■ **Crimson Collective**  
 ■ **ShinyHunters**
 
+<br>
 
 ## **MITRE ATT&CK Techniques**
 
@@ -33,28 +36,33 @@ This makes it especially effective for detecting **TTP‑based intrusions** that
 ■ **T1567.002 – Exfiltration to Cloud Storage**  
 ■ **T1041 – Exfiltration Over C2 Channel**
 
+<br>
 
 ## **Severity**
 **High**
 
+<br>
 
 ## **Detection Type**
 ■ Threat Hunting  
 ■ Behavioural Detection  
 ■ TTP‑based  
 
+<br>
 
 ## **Data Sources**
 ### **Microsoft Sentinel**
 ■ **Microsoft Entra ID**: `SigninLogs`  
 ■ **CommonSecurityLog** (Firewall / Proxy logs)
 
+<br>
 
 ## **False Positives**
 ■ Legitimate developers performing authorised large repository clones  
 ■ Automated CI/CD pipelines or build agents  
 ■ Scheduled backups or artifact distribution tasks  
 
+<br>
 ---
 
 # **KQL Query**
@@ -86,13 +94,14 @@ GitLabLogins
           SentGB, RequestURL, DestinationIP, DestinationPort, AppDisplayName
 ```
 
----
-
+--- 
+<br>
 
 ## **References**
 ■ Santhanam, A. (2025) Red Hat Data Breach Exposes 21,000+ Nissan Customer Records, Medium, 29th December [Blog]. Available at: https://cybersecuritywriteups.com/red-hat-data-breach-exposes-21-000-nissan-customer-records-dd93eb2a35a3  
 ■SOCRadar (2025) Dark Web Profile: ShinyHunters, SOCRadar, 18th March [Blog]. Available at: https://socradar.io/blog/dark-web-profile-shinyhunters/
 
+<br>
 
 ## **Author**
 **Faiza Aslam**
