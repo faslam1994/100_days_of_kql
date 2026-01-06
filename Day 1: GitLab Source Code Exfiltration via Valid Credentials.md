@@ -39,7 +39,7 @@ This makes it especially effective for detecting **TTP‑based intrusions** that
 <br>
 
 ## **Severity**
-**High**
+**High**: Detects large‑scale source‑code exfiltration using valid credentials, a pattern commonly observed in high‑severity incidents involving IP theft and supply‑chain compromise.
 
 <br>
 
@@ -53,7 +53,7 @@ This makes it especially effective for detecting **TTP‑based intrusions** that
 ## **Data Sources**
 ### **Microsoft Sentinel**
 ■ **Microsoft Entra ID**: `SigninLogs`  
-■ **CommonSecurityLog** (Firewall / Proxy logs)
+■ **CommonSecurityLog**: Firewall / Proxy logs
 
 <br>
 
