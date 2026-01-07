@@ -65,7 +65,8 @@ The KQL query examines repeated external connections, unique source IPs, and per
 
 ```kusto
 
-//This query identifies inbound connections to AWS instances on management ports over the past 90 days, filtering out private and trusted CIDR ranges to reduce noise. It then aggregates the activity by Account, VPC, Region, and destination port, calculating metrics such as first/last seen, total hits, unique source IPs, total bytes (in bytes and MB), and produces sets of related attributes such as destination addresses, interface IDs, and TCP flags for deeper investigation.
+// This query identifies inbound connections to AWS instances on management ports over the past 90 days, filtering out private and trusted CIDR ranges to reduce noise.
+// It then aggregates the activity by Account, VPC, Region, and destination port, calculating metrics such as first/last seen, total hits, unique source IPs, total bytes (in bytes and MB), and produces sets of related attributes such as destination addresses, interface IDs, and TCP flags for deeper investigation.
 // ===== PARAMETERS =====
 let MgmtPorts = dynamic([22, 3389, 8080, 23]);
 let TimeWindow = 90d;  // adjust as needed
