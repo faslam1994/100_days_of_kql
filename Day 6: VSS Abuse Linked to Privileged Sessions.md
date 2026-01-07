@@ -11,9 +11,9 @@ The final output highlights suspicious activity performed under the same LogonId
 <br>
 
 ## **Threats**
-■ **APT28 (aka Fancy Bear)**  
-■ **APT41**
-■ **HAFNIUM**
+■ **APT28 (aka Fancy Bear)**  <br>
+■ **APT41** <br>
+■ **HAFNIUM** <br>
 
 <br>
 
