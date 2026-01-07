@@ -6,7 +6,7 @@
 This rule detects potential credential‑theft or shadow‑copy tampering by correlating VSS‑related process executions (such as vssadmin shadow commands) with privileged logons, successful logon sessions, and access to highly sensitive files like ntds.dit, SAM, and SYSTEM. 
 It extracts and normalizes the LogonId from both native event fields and embedded XML to reliably join events across process, logon, and file‑access telemetry. 
 The final output highlights suspicious activity performed under the same LogonId, enabling analysts to trace attacker lateral movement or SYSTEM‑level misuse with high fidelity.
-<img width="768" height="512" alt="image" src="https://github.com/user-attachments/assets/f05cfd72-2acc-4ffe-baaf-8a73e6636160" />
+<img width="800" height="512" alt="image" src="https://github.com/user-attachments/assets/f05cfd72-2acc-4ffe-baaf-8a73e6636160" />
 
 <br>
 
