@@ -79,8 +79,7 @@ AWSVPCFlow
 | where not(ipv4_is_private(SrcAddr))
 // Explicit CIDR exclusions, a watchlist can be included here to reduce noise:
 | where not(
-       ipv4_is_match(SrcAddr, "20.192.0.0/10")
-    or ipv4_is_match(SrcAddr, "51.105.0.0/10")
+       ipv4_is_match(SrcAddr, "0.0.0.0/8")
 )
 // Summarize metrics and collect sets; group only by AccountId, VpcId, DstPort
 | summarize
