@@ -1,5 +1,5 @@
 
-# Alert Title: Suspicious MCP Prompt Injection
+# Alert Title: AWS Suspicious Management Port Activity
 
 <br>
 
