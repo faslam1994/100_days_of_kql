@@ -6,7 +6,7 @@
 ## **Description**
 CVE-2026-21858 (“Ni8mare”) is a maximum-severity (CVSS 10.0) vulnerability in the n8n workflow automation platform that allows an attacker to craft HTTP requests to a vulnerable webhook endpoint which leads to arbitrary file read and potentially full remote code execution on the server.
 
-Key risk indicators for detection:
+Key risk indicators for detection: <br>
 ■  Unusual use of webhook/form endpoints. <br>
 ■  Requests that return sensitive files (e.g., database, config files). <br>
 ■  Failed or unusual application responses. <br>
