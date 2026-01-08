@@ -14,7 +14,7 @@ Key risk indicators for detection: <br>
 <br>
 
 ## **Threats**
-■ **None - Currently**
+■ **No current threat groupsassociated with this vulnerability yet.**
 
 <br>
 
