@@ -71,65 +71,104 @@ Their double-extortion model not only encrypts victim data but also threatens pu
 ```kusto
 
 
+// ----- Tunables -----
+let lookback             = 3d;       // How far back to hunt
+let correlation_window   = 30m;      // Time window between defense evasion and encryption surge
+let min_encrypted_files  = 50;       // Threshold for "mass encryption"
+let min_distinct_dirs    = 5;        // Threshold for breadth of impact
+
+// --- Parameters / lists ---
 let RansomExtensions = dynamic([".qilin", ".agenda", ".locked"]);
-let RansomNotes = dynamic(["README.txt", "HOW_TO_DECRYPT.txt", "README_AGENDA.txt"]);
-let SuspiciousLOLBins = dynamic([
-    "vssadmin.exe",
-    "wmic.exe",
-    "bcdedit.exe",
-    "wevtutil.exe",
-    "powershell.exe",
-    "cmd.exe"
+let RansomNotes      = dynamic(["README.txt", "HOW_TO_DECRYPT.txt", "README_AGENDA.txt"]);
+let EvasionTerms     = dynamic([
+    "delete shadows",
+    "shadowcopy delete",
+    "bcdedit /set",
+    "recoveryenabled no",
+    "wevtutil cl",
+    "Clear-EventLog"
 ]);
 
 // ---- Stage 1: Ransomware preparation & defense evasion ----
 let DefenseEvasion =
     DeviceProcessEvents
-    | where FileName in (SuspiciousLOLBins)
-    | where ProcessCommandLine has_any (
-        "delete shadows",
-        "shadowcopy delete",
-        "bcdedit /set",
-        "recoveryenabled no",
-        "wevtutil cl",
-        "Clear-EventLog"
-    )
-    | project TimeGenerated, DeviceName, AccountName, FileName, ProcessCommandLine;
+    | where TimeGenerated > ago(lookback)
+    | where FileName in~ ("vssadmin.exe","wmic.exe","bcdedit.exe","wevtutil.exe","powershell.exe","cmd.exe")
+    | extend ActorUser = tolower(coalesce(
+        column_ifexists("AccountName",""),
+        column_ifexists("InitiatingProcessAccountName",""),
+        column_ifexists("InitiatingProcessAccountUpn","")
+    ))
+    | where isnotempty(ActorUser)
+    | where ProcessCommandLine has_any (EvasionTerms)
+    | project
+        DE_Time = TimeGenerated,
+        DeviceName,
+        ActorUser,
+        DE_FileName = FileName,
+        ProcessCommandLine;
 
 // ---- Stage 2: Mass file encryption behavior ----
 let EncryptionActivity =
     DeviceFileEvents
-    | where ActionType in ("FileCreated", "FileRenamed")
-    | where FileName has_any (RansomExtensions)
+    | where TimeGenerated > ago(lookback)
+    | extend ActorUser = tolower(coalesce(
+        column_ifexists("AccountName",""),
+        column_ifexists("InitiatingProcessAccountName",""),
+        column_ifexists("InitiatingProcessAccountUpn","")
+    ))
+    | where isnotempty(ActorUser)
+    | where ActionType in~ ("FileCreated", "FileRenamed")
+    // Extract true file extension and compare to the list
+    | extend FileExt = extract(@"\.[^.]+$", 0, FileName)
+    | where FileExt in (RansomExtensions)
     | summarize
         EncryptedFileCount = count(),
-        DistinctDirectories = dcount(FolderPath)
-        by DeviceName, AccountName, bin(TimeGenerated, 5m)
-    | where EncryptedFileCount > 50 and DistinctDirectories > 5;
+        DistinctDirectories = dcount(FolderPath),
+        EA_Start = min(TimeGenerated),
+        EA_End   = max(TimeGenerated)
+        by DeviceName, ActorUser, EA_Window = bin(TimeGenerated, 5m)
+    | where EncryptedFileCount > min_encrypted_files and DistinctDirectories > min_distinct_dirs;
 
 // ---- Stage 3: Ransom note creation ----
 let RansomNoteActivity =
     DeviceFileEvents
+    | where TimeGenerated > ago(lookback)
+    | extend ActorUser = tolower(coalesce(
+        column_ifexists("AccountName",""),
+        column_ifexists("InitiatingProcessAccountName",""),
+        column_ifexists("InitiatingProcessAccountUpn","")
+    ))
+    | where isnotempty(ActorUser)
     | where ActionType == "FileCreated"
     | where FileName in (RansomNotes)
-    | project TimeGenerated, DeviceName, AccountName, FolderPath, FileName;
+    // Collapse to earliest note per device/user to avoid duplicates
+    | summarize
+        RN_Time     = min(TimeGenerated),
+        RN_FileName = any(FileName),
+        RN_Path     = any(FolderPath)
+        by DeviceName, ActorUser;
 
 // ---- Correlation ----
 DefenseEvasion
-| join kind=inner EncryptionActivity on DeviceName, AccountName
-| join kind=leftouter RansomNoteActivity on DeviceName, AccountName
-| where EncryptionActivity.TimeGenerated between (DefenseEvasion.TimeGenerated .. DefenseEvasion.TimeGenerated + 30m)
+| join kind=inner EncryptionActivity on DeviceName, ActorUser
+| where EA_Start between (DE_Time .. DE_Time + correlation_window)
+| join kind=leftouter RansomNoteActivity on DeviceName, ActorUser
 | project
-    TimeGenerated,
+    DE_Time,
     DeviceName,
-    AccountName,
-    FileName,
+    ActorUser,
+    DE_FileName,
     ProcessCommandLine,
     EncryptedFileCount,
     DistinctDirectories,
-    RansomNote = FileName1,
-    RansomNotePath = FolderPath
-| order by TimeGenerated desc
+    EA_Start,
+    EA_End,
+    RN_Time,
+    RN_FileName,
+    RN_Path
+| order by DE_Time desc
+
 
 
 
