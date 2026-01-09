@@ -67,13 +67,13 @@ Key risk indicators for detection: <br>
 
 ```kusto
 
-// Watch for unusual content access to webhook/form endpoints
-let timeframe = 1h;
+let timeframe = 30d;
 AppServiceHTTPLogs
 | where TimeGenerated >= ago(timeframe)
-| where RequestUri_s has "/webhook" or RequestUri_s has "/form"
-| summarize RequestURICount = count(), distinctIPs = dcount(ClientIP_s) by RequestUri_s
-| where RequestURICount > 50 or distinctIPs > 10
+| where CsUriStem  has "/webhook" or CsUriStem has "/form"
+| summarize StartTime = min(TimeGenerated), EndTime = max(TimeGenerated), RequestURICount = count(), distinctIPs = dcount(CIp), IP = make_set(CIp), ComputerName = make_set(ComputerName), HTTPStatus = make_set(ScStatus), URIQuery = make_set(CsUriQuery), Usernames = make_set(CsUsername), Referer = make_set(Referer), Result = make_set(Result), Cookie = make_set(Cookie), Method = make_set(CsMethod)
+by CsUriStem
+| where RequestURICount > 10 or distinctIPs > 10
 | order by RequestURICount desc
 
 
