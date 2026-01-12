@@ -124,7 +124,7 @@ by bin(TimeGenerated, timeBin), DeviceName
 ## **References**
 ■ Dayanç , S.E (2025) Cyberattack against La Poste: the pro-Russian group NoName057 claims responsibility for the attack, Anadolu Agency, 24th December [News]. Available at: https://www.aa.com.tr/fr/monde/cyberattaque-contre-la-poste-le-groupe-prorusse-noname057-revendique-l-attaque/3779497  <br>
 ■ Pearson, E. (2025) French postal services disrupted after cyber-attack, The Local, 23rd December [Blog]. Available at: https://www.thelocal.fr/20251223/french-postal-services-disrupted-after-cyber-attack  <br>
-■ Muncaster, P. (2025) La Poste Still Offline After Major DDoS Attack,  InfoSecurity, 24th December [Blog]. Available at: https://www.infosecurity-magazine.com/news/la-poste-still-offline-after-major/ 
+■ Muncaster, P. (2025) La Poste Still Offline After Major DDoS Attack,  InfoSecurity, 24th December [Blog]. Available at: https://www.infosecurity-magazine.com/news/la-poste-still-offline-after-major/ <br>
  <br>
 <br>
 
