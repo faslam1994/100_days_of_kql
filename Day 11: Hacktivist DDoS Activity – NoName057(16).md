@@ -66,7 +66,6 @@ Key risk indicators for detection: <br>
 
 <br>
 <br>
---- 
 
 
 ## **KQL Query**
