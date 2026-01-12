@@ -7,13 +7,11 @@
 ## **Description**
 In late December 2025, France’s national postal service La Poste and its banking subsidiary La Banque Postale were hit by a large-scale distributed denial-of-service (DDoS) cyberattack, significantly disrupting online postal, parcel tracking, and digital banking services during the peak Christmas season. <br>
 The attack began on 22 December 2025, overwhelming key public-facing applications, including the main website, mobile applications, and secure services such as Digiposte and digital identity systems. Online parcel tracking and electronic payment functions were inaccessible, though physical postal operations and offline banking continued with degraded capabilities. No evidence has been reported of customer data compromise, as the attack focused on service availability. <br>
-
+<br>
 Key risk indicators for detection: <br>
 ■ Excessive or anomalous traffic patterns to public web services (HTTP/S). <br>
 ■ Unexpected service outages or unavailability correlated with high request rates. <br>
 ■ Spike in SYN/ICMP/UDP traffic from distributed sources. <br>
-<br>
-<br>
 <br>
 <br> 
 
@@ -21,7 +19,6 @@ Key risk indicators for detection: <br>
 ■ **State-aligned Hacktivist Group: NoName057(16)** <br>
 
 <br>
-
 <br>
 
 ## **MITRE ATT&CK Techniques**
@@ -40,16 +37,19 @@ Key risk indicators for detection: <br>
 ■ **T1071.001 – Application Layer Protocol**: Web Protocols: https://attack.mitre.org/techniques/T1071/001/ <br>
 
 <br>
+<br>
 
 ## **Severity**
 **High**: The attack occurred during a peak operational period significantly impacting the availabity of postal service. This resulted in impacting millions of customers’ ability to track parcels, use banking services, and conduct online transactions.
 
+<br>
 <br>
 
 ## **Detection Type** 
 ■ Behavioural Detection  <br>
 ■ TTP‑based  <br>
 
+<br>
 <br>
 
 ## **Data Sources**
@@ -65,7 +65,7 @@ Key risk indicators for detection: <br>
 ■ Misconfigured automated monitoring tools triggering alerts <br>
 
 <br>
-
+<br>
 --- 
 
 
@@ -119,6 +119,7 @@ by bin(TimeGenerated, timeBin), DeviceName
 ```
 
 --- 
+<br>
 <br>
 
 ## **References**
