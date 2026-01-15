@@ -82,8 +82,7 @@ AuditLogs
 <br>
 
 ## **References**
-■ Santhanam, A. (2025) Red Hat Data Breach Exposes 21,000+ Nissan Customer Records, Medium, 29th December [Blog]. Available at: https://cybersecuritywriteups.com/red-hat-data-breach-exposes-21-000-nissan-customer-records-dd93eb2a35a3  
-■ SOCRadar (2025) Dark Web Profile: ShinyHunters, SOCRadar, 18th March [Blog]. Available at: https://socradar.io/blog/dark-web-profile-shinyhunters/
+■ Microsoft (n.d.) Kusto Query Language learning resources [Online]. Available at: https://learn.microsoft.com/en-us/kusto/query/kql-learning-resources?view=microsoft-fabric
 
 <br>
 
