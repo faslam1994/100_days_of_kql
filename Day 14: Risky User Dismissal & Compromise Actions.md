@@ -73,8 +73,7 @@ AuditLogs
 |extend SuspectedUser = tostring(TargetResources[0].displayName)
 |extend SecurityUser = InitiatedBy.user.userPrincipalName
 |where SecurityUser contains "entername"
-|project TimeGenerated, OperationName, SecurityUser, SuspectedUser<img width="552" height="144" alt="image" src="https://github.com/user-attachments/assets/71f7e0ae-3aba-4542-9978-b7d526f7db49" />
-
+|project TimeGenerated, OperationName, SecurityUser, SuspectedUser
 
 ```
 
