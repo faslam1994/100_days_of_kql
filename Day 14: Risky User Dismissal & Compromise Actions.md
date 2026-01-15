@@ -39,7 +39,7 @@ It helps security teams track who confirmed account compromises or dismissed use
 <br>
 
 ## **Severity**
-**Mediumh**: These actions are legitimate but sensitive. If performed by unauthorized or unexpected users, they may indicate insider threats or compromised admin accounts. <br> 
+**Medium**: These actions are legitimate but sensitive. If performed by unauthorized or unexpected users, they may indicate insider threats or compromised admin accounts. <br> 
 <br>
 
 ## **Detection Type**
