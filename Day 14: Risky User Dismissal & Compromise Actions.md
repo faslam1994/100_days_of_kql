@@ -18,17 +18,17 @@ It helps security teams track who confirmed account compromises or dismissed use
 <br>
 
 ## **Threats**
-■ Insider misuse of privileged actions
-■ Unauthorized dismissal of compromised accounts
-■ Potential cover-up of account compromise
+■ Insider misuse of privileged actions <br>
+■ Unauthorized dismissal of compromised accounts <br>
+■ Potential cover-up of account compromise <br>
 
 <br>
 
 ## **MITRE ATT&CK Techniques**
 
 ### **Tactics**
-■ Defense Evasion
-■ Impact
+■ Defense Evasion <br>
+■ Impact <br>
 
 <br>
 
@@ -43,13 +43,13 @@ It helps security teams track who confirmed account compromises or dismissed use
 <br>
 
 ## **Detection Type**
-■ Audit Monitoring
-■ Privileged Action Tracking
+■ Audit Monitoring <br>
+■ Privileged Action Tracking <br>
 
 <br>
 
 ## **Data Sources**
-### **Microsoft Sentinel**
+### **Microsoft Sentinel** 
 ■ **Microsoft Entra ID**: `AuditLogs`
 
 <br>
