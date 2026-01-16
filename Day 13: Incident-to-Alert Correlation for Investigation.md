@@ -88,12 +88,12 @@ SecurityAlert
 
 ```kusto
 let IncidentAlerts = SecurityIncident
+|where Title contains "Add Title Here " 
 | mv-expand AlertId = AlertIds
 | extend AlertId = tostring(AlertId)
 | project AlertId, IncidentNumber, Title, IncidentUrl;
 
 SecurityAlert
-|where AlertName contains "Add Alert Name Here " 
 | extend SystemAlertId = tostring(SystemAlertId)
 | join kind=inner (IncidentAlerts) on $left.SystemAlertId == $right.AlertId
 | project IncidentNumber, AlertName, AlertSeverity, TimeGenerated, CompromisedEntity, Title, AlertLink
