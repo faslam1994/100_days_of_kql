@@ -9,7 +9,7 @@ This helps analysts quickly: <br>
 ■  Detect creation of externally managed cryptographic keys <br>
 ■  Validate compliance with key management and encryption policies <br>
 ■  Investigate potential misuse or unauthorized key creation <br>
-
+<br>
 The diagram below demonstrates the attack flow:
 <img width="1045" height="707" alt="image" src="https://github.com/user-attachments/assets/19b6bfe2-7130-4357-99e9-a99d9f515dcf" />
 
