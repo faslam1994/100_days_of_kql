@@ -39,6 +39,8 @@ The diagram below demonstrates the attack flow:
 ■ **T1552.004 – Unsecured Credentials: Private Keys**: https://attack.mitre.org/techniques/T1552/004/ <br>
 ■ **T1573 – Encrypted Channel**: https://attack.mitre.org/techniques/T1573/ <br>
 
+<br>
+<br>
 
 ## **Severity**
 **Medium**: External KMS key creation may be legitimate but requires validation to ensure compliance and authorization.
@@ -64,6 +66,7 @@ The diagram below demonstrates the attack flow:
 ■ Legitimate key import operations by security or compliance teams <br>
 
 
+<br>
 <br>
 
 --- 
@@ -92,6 +95,7 @@ AWSCloudTrail
 ■ Kao, J. (2025) The Complexity of Detecting Amazon S3 and KMS Ransomware, Fog Security, 7th April [Blog]. Available at: https://www.fogsecurity.io/blog/how-to-detect-amazon-s3-ransomware <br>
 ■ Verma, Y. (2025) Breaking Down S3 Ransomware: Variants, Attack Paths and Trend Vision One™ Defenses, Trend Micro, 18th November [Blog]. Available at: https://www.trendmicro.com/en_us/research/25/k/s3-ransomware.html <br>
 
+<br>
 <br>
 
 ## **Author**
