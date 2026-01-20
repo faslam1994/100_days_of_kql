@@ -6,7 +6,7 @@
 This query correlates Microsoft Sentinel Security Incidents with their associated Security Alerts to provide a consolidated view of alert activity within an incident. <br>
 It expands alert IDs from incidents, joins them with alert details, and summarizes key metrics such as alert count, severity distribution, and impacted entities. <br>
 <br>
-This helps analysts quickly: <br>
+**This detection helps analysts quickly:** <br>
 ■  Identify all alerts tied to a specific incident <br>
 ■  Understand the timeline and severity of related alerts <br>
 ■  Prioritize investigation based on alert aggregation <br>
