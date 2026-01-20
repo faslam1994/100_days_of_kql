@@ -72,23 +72,21 @@ The diagram below illustrates the attack flow and the detection point:
 ## **KQL Query**
 
 ```kusto
+
+let ApprovedKms = dynamic([`Add KMS Keys Here`]);
+
 AWSCloudTrail
 | where EventSource == "s3.amazonaws.com"
 | where EventName in ("PutBucketEncryption", "PutObject")
-| extend KmsKeyId =
-    coalesce(
-        tostring(parse_json(RequestParameters).serverSideEncryptionConfiguration.rules[0].applyServerSideEncryptionByDefault.kmsMasterKeyID),
-        tostring(parse_json(RequestParameters).x-amz-server-side-encryption-aws-kms-key-id)
-    )
-| where isnotempty(KmsKeyId)
-| project
-    TimeGenerated,
-    EventName,
-    BucketName = tostring(parse_json(RequestParameters).bucketName),
-    KmsKeyId,
-    UserIdentityArn,
-    SourceIpAddress
-| order by TimeGenerated desc
+| extend rp = todynamic(RequestParameters)
+| extend Rule = rp.ServerSideEncryptionConfiguration.Rule
+| extend Apply = Rule.ApplyServerSideEncryptionByDefault
+| extend KmsKeyId = coalesce(
+        tostring(Apply.KMSMasterKeyID), tostring(rp["x-amz-server-side-encryption-aws-kms-key-id"]), tostring(rp.kmsKeyId)
+)
+| where isnotempty(KmsKeyId) and isnotempty(UserIdentityArn)
+| where KmsKeyId !in (ApprovedKms)
+| summarize StartTime = min(TimeGenerated), EndTime = max(TimeGenerated), Users = make_set(UserIdentityArn) by KmsKeyId
 
 
 ```
