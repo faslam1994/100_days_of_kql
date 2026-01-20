@@ -5,7 +5,7 @@
 This detection identifies **macro-based malware activity** delivered through phishing emails containing Excel attachments (e.g., `.xls`, `.xlsm`). <br>
 Instead of relying on static file hashes, this query uses **behavior-based detection** to identify when a user opens an Excel attachment from Outlook and the document executes macros that spawn suspicious child processes. <br>
 <br>
-**This helps analysts quickly**: <br>
+**This detection helps analysts quickly**: <br>
 ■ Detect macro malware variants that evade hash-based signatures <br>
 ■ Identify phishing-driven initial access attempts <br>
 ■ Correlate email delivery with endpoint execution behavior <br>
