@@ -5,7 +5,7 @@
 This query detects Amazon S3 activities where **AWS KMS customer-managed keys** are used for server-side encryption. <br>
 It monitors AWS CloudTrail logs for `PutBucketEncryption` and `PutObject` events from `s3.amazonaws.com` and extracts the KMS Key ID applied during encryption operations. <br>
 <br>
-**This helps analysts quickly**: <br>
+**This detection helps analysts quickly**: <br>
 ■ Identify S3 buckets or objects encrypted with specific KMS keys <br>
 ■ Detect unauthorized or unexpected use of customer-managed KMS keys <br>
 ■ Investigate potential ransomware or data impact scenarios involving malicious re-encryption <br>
