@@ -80,7 +80,7 @@ AWSCloudTrail
 | extend KeyId = tostring(parse_json(ResponseElements).keyMetadata.keyId)
 | extend KeyArn = tostring(parse_json(ResponseElements).keyMetadata.arn)
 | extend Origin = tostring(parse_json(ResponseElements).keyMetadata.origin)
-| where Origin == "EXTERNAL"
+| where Origin contains "EXTERNAL"
 | project TimeGenerated, UserIdentityArn, SourceIpAddress, KeyId, KeyArn, Origin, UserAgent
 | order by TimeGenerated desc
 
