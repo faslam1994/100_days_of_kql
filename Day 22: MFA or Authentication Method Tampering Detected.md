@@ -9,9 +9,9 @@ This helps security teams: <br>
 ■ Detect MFA disablement or factor removal attempts <br> 
 ■ Identify compromised accounts attempting to bypass protections <br>
 ■ Monitor authentication configuration changes <br> 
-■ Investigate identity defense evasion activity <br> <br>
-
-Key objectives:
+■ Investigate identity defense evasion activity <br> 
+<br>
+Key objectives: <br>
 ■ Detect MFA removal or bypass attempts <br>
 ■ Prevent account takeover persistence <br>
 ■ Identify unauthorized authentication changes <br>
@@ -31,7 +31,6 @@ Key objectives:
 ## **MITRE ATT&CK Techniques**
 
 ### **Tactics**
-
 ■ Defense Evasion <br>
 ■ Credential Access <br>
 ■ Persistence <br>
@@ -45,21 +44,22 @@ Key objectives:
 <br>
 
 ## **Severity**
-**High**: Disabling or modifying authentication protections is a strong indicator of compromise or malicious persistence behaviour and should be investigated immediately. <br> <br>
+**High**: Disabling or modifying authentication protections is a strong indicator of compromise or malicious persistence behaviour and should be investigated immediately. <br> 
+<br>
 <br>
 
 ## **Detection Type**
 ■ Identity Threat Detection <br>
 ■ Persistence Monitoring <br>
 ■ Defense Evasion Detection <br>
-
+<br>
 <br>
 
 ## **Data Sources**
 ### **Microsoft Sentinel**
 ■ **Microsoft Entra ID**: `AuditLogs`
 <br>
-
+<br>
 ## **False Positives**
 ■ Helpdesk or IT administrators resetting MFA for users <br>
 ■ Legitimate device or phone replacement <br>
