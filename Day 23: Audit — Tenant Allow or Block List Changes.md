@@ -63,9 +63,7 @@ Key indicators for detection: <br>
 <br>
 
 ## **False Positives**
-■ Router management activity during authorized configuration <br>
-■ Security/monitoring scans accessing CGI endpoints <br>
-■ Internal admin scripts modifying DNS settings legitimately <br>
+■ Legitimate authorise TABL changes <br>
 
 <br>
 
