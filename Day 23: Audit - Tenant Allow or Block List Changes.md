@@ -1,4 +1,4 @@
-# Alert Title: Audit — Tenant Allow or Block List Changes
+# Alert Title: Audit - Tenant Allow or Block List Changes
 
 <br>
 
