@@ -4,7 +4,7 @@
 
 ## **Description**
 This audit tracks administrative activity related to **Tenant Allow/Block List** changes in Microsoft 365.  
-It surfaces operations invoked via `New-TenantAllowBlockListItems`, `Remove-TenantAllowBlockListItems`, and `Set-TenantAllowBlockListItems`, expands and normalizes parameter details (e.g., ListType, Entries, ExpirationDate, Block, Notes), and enriches with the associated **user session** from **SigninLogs** for accountability. This is intended for **change monitoring and governance**, not threat detection.<br>
+It surfaces operations invoked via `New-TenantAllowBlockListItems`, `Remove-TenantAllowBlockListItems`, and `Set-TenantAllowBlockListItems`, expands and normalizes parameter details (e.g., ListType, Entries, ExpirationDate, Block, Notes), and enriches with the associated **user session** from **SigninLogs** for accountability. This rule is intended for **change monitoring and governance**, and insider threat detection.<br>
 
 <br>
 Key indicators for detection: <br>
