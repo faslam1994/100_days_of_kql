@@ -21,10 +21,10 @@ Key indicators for detection: <br>
 
 
 ## **Threats**
-■  Unauthorized remote access to external systems or compromised infrastructure. 
-■ Exfiltration or tunneling via SSH channels. 
-■ Credential abuse (stolen keys/credentials) to reach external footholds. 
-■ Malware staging or operator-controlled command execution over SSH. 
+■  Unauthorized remote access to external systems or compromised infrastructure.  <br>
+■ Exfiltration or tunneling via SSH channels.  <br>
+■ Credential abuse (stolen keys/credentials) to reach external footholds.  <br>
+■ Malware staging or operator-controlled command execution over SSH.  <br>
 
 
 <br>
@@ -59,17 +59,17 @@ Key indicators for detection: <br>
 <br>
 
 ## **Detection Type** 
-■ Behavioral Detection
-■ Audit / Change Monitoring (Network Egress Policy)
-■ TTP-Based
+■ Behavioral Detection  <br>
+■ Audit / Change Monitoring (Network Egress Policy)  <br>
+■ TTP-Based  <br>
 
 
 
 <br>
 
 ## **Data Sources**
-### **Microsoft Sentinel**
-■ **Microsoft XDR Telemetry**: `DeviceNetworkEvents` `SigninLogs`
+### **Microsoft Sentinel** 
+■ **Microsoft XDR Telemetry**: `DeviceNetworkEvents` `SigninLogs`  <br>
 
 <br>
 
